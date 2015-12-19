@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace Fantasy_Calender.ViewModels
+namespace Fantasy_Calender.ViewModels 
 {
-    class CalendarViewModel
+    class CalendarViewModel : INotifyPropertyChanged
     {
         private DateTime displayDate;
 
@@ -21,9 +18,20 @@ namespace Fantasy_Calender.ViewModels
                 if(value != displayDate)
                 {
                     displayDate = value;
+
+                    RaisePropertyChanged(nameof(DisplayDate));
                 }
             }
         }
-            
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void RaisePropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }

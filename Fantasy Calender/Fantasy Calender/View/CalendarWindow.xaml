@@ -7,7 +7,9 @@
         mc:Ignorable="d" DataContext="ViewModels.CalendarViewModel"
         Title="Fantasy Calendar" Height="350" Width="525">
     <Grid>
-        <Calendar DisplayDate="{Binding DisplayDate}" Margin="342,149,5,0" Height="170" Width="170">
-        </Calendar>
+        <Viewbox Stretch="Uniform" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+            <Calendar DisplayDate="{Binding DisplayDate}"  Height="250" Width="250"/>
+        </Viewbox>
+
     </Grid>
 </Window>
